@@ -9,13 +9,143 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gwmky"]
 
+[sub_resource type="Animation" id="Animation_fmrn0"]
+resource_name = "BreatheLeft"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.5070572, 0, 0, 0.8619125, 0.5, 1, -0.35789537, 0.61056405, -0.3591907, 0.6083622, 1, 1, -0.5070573, 0, 0, 0.8619124)
+
+[sub_resource type="Animation" id="Animation_labs6"]
+resource_name = "BreatheRight"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.5070572, 0, 0, 0.8619125, 0.5, 1, -0.35830578, -0.6098682, 0.35878134, 0.60905975, 1, 1, -0.5070573, 0, 0, 0.8619124)
+
+[sub_resource type="Animation" id="Animation_m15ch"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmLeft")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.5070571, 0, 0, 0.8619125)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmLeft:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArmRight:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ooaxr"]
+resource_name = "StrokeLeft"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmLeft")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.13333334, 1, -0.707, 0, 0, 0.707, 0.5, 1, 0.989, 0, 0, 0.148)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.5070571, 0, 0, 0.8619125, 0.23333333, 1, -0.50698227, -0.008712215, 0.014809312, 0.8617853, 0.5, 1, -0.5070571, 0, 0, 0.8619125)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmLeft:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qy5q8"]
+resource_name = "StrokeRight"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmRight")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.13333334, 1, -0.707, 0, 0, 0.707, 0.5, 1, 0.989, 0, 0, 0.148)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.5070571, 0, 0, 0.8619125, 0.23333333, 1, -0.50697345, 0.009207727, -0.0156516, 0.86177033, 0.5, 1, -0.5070571, 0, 0, 0.8619125)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmRight:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qy5q8"]
+_data = {
+&"BreatheLeft": SubResource("Animation_fmrn0"),
+&"BreatheRight": SubResource("Animation_labs6"),
+&"RESET": SubResource("Animation_m15ch"),
+&"StrokeLeft": SubResource("Animation_ooaxr"),
+&"StrokeRight": SubResource("Animation_qy5q8")
+}
+
 [node name="Character" type="Node3D" unique_id=1582091954]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1297733054]
-transform = Transform3D(1, 0, 0, 0, 0.48578632, 0.8740776, 0, -0.8740776, 0.48578632, 0, 1.0030421, 0.032489777)
+transform = Transform3D(1, 0, 0, 0, 0.4857863, 0.8740778, 0, -0.8740778, 0.4857863, 0, 1.0030421, 0.032489777)
 
 [node name="ArmLeft" type="Node3D" parent="." unique_id=1629165829]
-transform = Transform3D(1, 0, 0, 0, 0.23156132, 0.97282046, 0, -0.97282046, 0.23156132, -0.51232076, 0, 0.38575375)
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.84294, 0, 0.38575375)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ArmLeft" unique_id=1713140071]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, 0)
@@ -27,7 +157,7 @@ transform = Transform3D(0.45634297, 0, 0, 0, 0.3340845, 0, 0, 0, 0.3016554, 0, 1
 mesh = SubResource("CapsuleMesh_gwmky")
 
 [node name="ArmRight" type="Node3D" parent="." unique_id=1510535650]
-transform = Transform3D(1, 0, 0, 0, -0.2721629, -0.9622512, 0, 0.9622512, -0.2721629, 0.5340855, 0, 0.38575375)
+transform = Transform3D(1, 0, 0, 0, -0.956193, -0.2927366, 0, 0.2927366, -0.956193, 0.84, 0, 0.386)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ArmRight" unique_id=1111192326]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, 0)
@@ -53,3 +183,7 @@ metadata/_custom_type_script = "uid://cwp6egf7ihg7o"
 [node name="Sighting" type="Node" parent="StateMachine" unique_id=2143514098]
 script = ExtResource("4_qy5q8")
 metadata/_custom_type_script = "uid://cwp6egf7ihg7o"
+
+[node name="PlayerAnimations" type="AnimationPlayer" parent="." unique_id=542609477]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_qy5q8")
