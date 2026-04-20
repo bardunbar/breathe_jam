@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://7rfb32pwqesu"]
+
+[ext_resource type="Shader" uid="uid://cnodusow3hw1s" path="res://screens/waterline_gym/underwater_postprocess.gdshader" id="1_ry1sk"]
+[ext_resource type="Shader" uid="uid://n628bxmcno0j" path="res://screens/waterline_gym/water_surface.gdshader" id="2_g1n6r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ry1sk"]
+render_priority = 0
+shader = ExtResource("1_ry1sk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_glvk8"]
+material = SubResource("ShaderMaterial_ry1sk")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ry1sk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glvk8"]
+render_priority = 0
+shader = ExtResource("2_g1n6r")
+shader_parameter/height_scale = 0.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ry1sk"]
+material = SubResource("ShaderMaterial_glvk8")
+subdivide_width = 128
+subdivide_depth = 128
+
+[node name="WaterlineGym" type="Node3D" unique_id=296911887]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=268894357]
+
+[node name="Underwater_PostProcess" type="MeshInstance3D" parent="Camera3D" unique_id=791733948]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_glvk8")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1346168638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.355379, 0.040837467, -0.2863624)
+mesh = SubResource("BoxMesh_ry1sk")
+
+[node name="Surface" type="MeshInstance3D" parent="." unique_id=151077046]
+transform = Transform3D(-3.4215753, 0, 0, 0, 1.2382214, -2.4327056e-07, 0, 1.08248756e-07, 2.782691, 0, 0.020233274, 0.012524128)
+mesh = SubResource("PlaneMesh_ry1sk")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1722726410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.566047, 0.44596362, -2.2715495)
