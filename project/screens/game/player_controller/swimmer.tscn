@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b1lg0qenj04wi"]
+
+[ext_resource type="Script" uid="uid://bv1n4b2nb2qhn" path="res://scripts/state_machine/state_machine.gd" id="1_0lhhj"]
+[ext_resource type="Script" uid="uid://bk5o1qx0l63fp" path="res://screens/game/player_controller/states/swimming.gd" id="2_m15ch"]
+[ext_resource type="Script" uid="uid://owgrbi0vjq18" path="res://screens/game/player_controller/states/breathing.gd" id="3_ooaxr"]
+[ext_resource type="Script" uid="uid://bgiacvfnnbj8w" path="res://screens/game/player_controller/states/sighting.gd" id="4_qy5q8"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xk10r"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gwmky"]
+
+[node name="Character" type="Node3D" unique_id=1582091954]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1297733054]
+transform = Transform3D(1, 0, 0, 0, 0.48578632, 0.8740776, 0, -0.8740776, 0.48578632, 0, 1.0030421, 0.032489777)
+
+[node name="ArmLeft" type="Node3D" parent="." unique_id=1629165829]
+transform = Transform3D(1, 0, 0, 0, 0.23156132, 0.97282046, 0, -0.97282046, 0.23156132, -0.51232076, 0, 0.38575375)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ArmLeft" unique_id=1713140071]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, 0)
+mesh = SubResource("CylinderMesh_xk10r")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ArmLeft" unique_id=2049447130]
+transform = Transform3D(0.45634297, 0, 0, 0, 0.3340845, 0, 0, 0, 0.3016554, 0, 1.9440808, 0.025530279)
+mesh = SubResource("CapsuleMesh_gwmky")
+
+[node name="ArmRight" type="Node3D" parent="." unique_id=1510535650]
+transform = Transform3D(1, 0, 0, 0, -0.2721629, -0.9622512, 0, 0.9622512, -0.2721629, 0.5340855, 0, 0.38575375)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ArmRight" unique_id=1111192326]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, 0)
+mesh = SubResource("CylinderMesh_xk10r")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ArmRight" unique_id=2004796931]
+transform = Transform3D(0.45634297, 0, 0, 0, 0.3340845, 0, 0, 0, 0.3016554, 0, 1.9440808, 0.025530279)
+mesh = SubResource("CapsuleMesh_gwmky")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1493722726]
+script = ExtResource("1_0lhhj")
+metadata/_custom_type_script = "uid://bv1n4b2nb2qhn"
+
+[node name="Swimming" type="Node" parent="StateMachine" unique_id=1537144476]
+script = ExtResource("2_m15ch")
+metadata/_custom_type_script = "uid://cwp6egf7ihg7o"
+
+[node name="Breathing" type="Node" parent="StateMachine" unique_id=313908709]
+script = ExtResource("3_ooaxr")
+metadata/_custom_type_script = "uid://cwp6egf7ihg7o"
+
+[node name="Sighting" type="Node" parent="StateMachine" unique_id=2143514098]
+script = ExtResource("4_qy5q8")
+metadata/_custom_type_script = "uid://cwp6egf7ihg7o"

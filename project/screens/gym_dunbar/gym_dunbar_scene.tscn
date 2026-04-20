@@ -1,36 +1,7 @@
 [gd_scene format=3 uid="uid://be7kb6lt8oeet"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_xk10r"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_gwmky"]
+[ext_resource type="PackedScene" uid="uid://b1lg0qenj04wi" path="res://screens/game/player_controller/swimmer.tscn" id="1_gwmky"]
 
 [node name="GymDunbar" type="Node3D" unique_id=2032831520]
 
-[node name="Character" type="Node3D" parent="." unique_id=714657206]
-
-[node name="Camera3D" type="Camera3D" parent="Character" unique_id=1630810385]
-transform = Transform3D(1, 0, 0, 0, 0.48578632, 0.8740776, 0, -0.8740776, 0.48578632, 0, 1.0030421, 0.032489777)
-
-[node name="ArmLeft" type="Node3D" parent="Character" unique_id=1308785265]
-transform = Transform3D(1, 0, 0, 0, 0.23156132, 0.97282046, 0, -0.97282046, 0.23156132, -0.51232076, 0, 0.38575375)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Character/ArmLeft" unique_id=1016477857]
-transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, 0)
-mesh = SubResource("CylinderMesh_xk10r")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Character/ArmLeft" unique_id=1407773704]
-transform = Transform3D(0.45634297, 0, 0, 0, 0.3340845, 0, 0, 0, 0.3016554, 0, 1.9440808, 0.025530279)
-mesh = SubResource("CapsuleMesh_gwmky")
-
-[node name="ArmRight" type="Node3D" parent="Character" unique_id=521373675]
-transform = Transform3D(1, 0, 0, 0, -0.2721629, -0.9622512, 0, 0.9622512, -0.2721629, 0.5340855, 0, 0.38575375)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Character/ArmRight" unique_id=1789707309]
-transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, 0)
-mesh = SubResource("CylinderMesh_xk10r")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Character/ArmRight" unique_id=204355102]
-transform = Transform3D(0.45634297, 0, 0, 0, 0.3340845, 0, 0, 0, 0.3016554, 0, 1.9440808, 0.025530279)
-mesh = SubResource("CapsuleMesh_gwmky")
+[node name="Swimmer" parent="." unique_id=1582091954 instance=ExtResource("1_gwmky")]
