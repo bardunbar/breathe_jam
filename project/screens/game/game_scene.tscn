@@ -1,20 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfnef885bvt5u"]
+[gd_scene format=3 uid="uid://cfnef885bvt5u"]
 
 [ext_resource type="Script" uid="uid://cqdnoi24guymt" path="res://screens/game/game_script.gd" id="1_e6mtp"]
-[ext_resource type="Texture2D" uid="uid://ch2c0uus03qn6" path="res://assets/textures/godot_logo.png" id="1_wpo6x"]
 [ext_resource type="PackedScene" uid="uid://c4oy6yui5ffhj" path="res://screens/play_menu/play_menu_scene.tscn" id="2_jjnch"]
-[ext_resource type="Script" uid="uid://buy4c3xhcnogx" path="res://screens/game/twirl.gd" id="2_uald8"]
 
-[node name="GameScene" type="Node2D"]
+[sub_resource type="BoxMesh" id="BoxMesh_uald8"]
+
+[node name="GameScene" type="Node3D" unique_id=555134819]
 script = ExtResource("1_e6mtp")
 play_menu = ExtResource("2_jjnch")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(587, 308)
-scale = Vector2(0.146484, 0.146484)
-texture = ExtResource("1_wpo6x")
-script = ExtResource("2_uald8")
-rate = 1.0
-
-[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+[node name="InterfaceLayer" type="CanvasLayer" parent="." unique_id=1732371855]
 unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=926638979]
+transform = Transform3D(1, 0, 0, 0, 0.9976664, 0.06827648, 0, -0.06827648, 0.9976664, 0, 1.3488567, 0)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=59656687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.3745742)
+mesh = SubResource("BoxMesh_uald8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793379381]
+transform = Transform3D(0.2287587, 0.7428622, -0.6291464, 0, 0.6462838, 0.76309717, 0.97348315, -0.1745651, 0.14784303, 0, 0, 0)
