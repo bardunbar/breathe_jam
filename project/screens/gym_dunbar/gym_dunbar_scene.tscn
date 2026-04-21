@@ -87,6 +87,426 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -5.13530
 mesh = SubResource("BoxMesh_gwmky")
 skeleton = NodePath("../..")
 
+[node name="ReferenceCube13" type="MeshInstance3D" parent="BackgroundSample" unique_id=977232784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -26.017813)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube14" type="MeshInstance3D" parent="BackgroundSample" unique_id=883704748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -28.824913)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube15" type="MeshInstance3D" parent="BackgroundSample" unique_id=474525402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -37.66125)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube16" type="MeshInstance3D" parent="BackgroundSample" unique_id=966971419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -32.56622)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube17" type="MeshInstance3D" parent="BackgroundSample" unique_id=1714264661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -20.799526)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube18" type="MeshInstance3D" parent="BackgroundSample" unique_id=1264073021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -23.606627)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube19" type="MeshInstance3D" parent="BackgroundSample" unique_id=1864839197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -32.442963)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube20" type="MeshInstance3D" parent="BackgroundSample" unique_id=487869866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -27.347933)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube21" type="MeshInstance3D" parent="BackgroundSample" unique_id=1121211086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -20.799526)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube22" type="MeshInstance3D" parent="BackgroundSample" unique_id=1307677360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -23.606627)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube23" type="MeshInstance3D" parent="BackgroundSample" unique_id=467833511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -32.442963)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube24" type="MeshInstance3D" parent="BackgroundSample" unique_id=738615618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -27.347933)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube25" type="MeshInstance3D" parent="BackgroundSample" unique_id=108603924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -55.347176)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube26" type="MeshInstance3D" parent="BackgroundSample" unique_id=250277604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -58.154278)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube27" type="MeshInstance3D" parent="BackgroundSample" unique_id=59815324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -66.990616)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube28" type="MeshInstance3D" parent="BackgroundSample" unique_id=207729333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -61.895584)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube29" type="MeshInstance3D" parent="BackgroundSample" unique_id=1638360550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -50.12889)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube30" type="MeshInstance3D" parent="BackgroundSample" unique_id=296330688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -52.93599)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube31" type="MeshInstance3D" parent="BackgroundSample" unique_id=926612048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -61.772327)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube32" type="MeshInstance3D" parent="BackgroundSample" unique_id=1855948980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -56.6773)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube33" type="MeshInstance3D" parent="BackgroundSample" unique_id=1200985847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -50.12889)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube34" type="MeshInstance3D" parent="BackgroundSample" unique_id=1855769553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -52.93599)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube35" type="MeshInstance3D" parent="BackgroundSample" unique_id=1256143105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -61.772327)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube36" type="MeshInstance3D" parent="BackgroundSample" unique_id=1661956119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -56.6773)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube37" type="MeshInstance3D" parent="BackgroundSample" unique_id=126926728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -85.22752)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube38" type="MeshInstance3D" parent="BackgroundSample" unique_id=460609399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -88.03462)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube39" type="MeshInstance3D" parent="BackgroundSample" unique_id=1740258342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -96.87096)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube40" type="MeshInstance3D" parent="BackgroundSample" unique_id=364341723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -91.775925)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube41" type="MeshInstance3D" parent="BackgroundSample" unique_id=920386794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -80.00923)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube42" type="MeshInstance3D" parent="BackgroundSample" unique_id=406811295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -82.81633)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube43" type="MeshInstance3D" parent="BackgroundSample" unique_id=1811520422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -91.65267)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube44" type="MeshInstance3D" parent="BackgroundSample" unique_id=937039800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -86.55765)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube45" type="MeshInstance3D" parent="BackgroundSample" unique_id=1159819219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -80.00923)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube46" type="MeshInstance3D" parent="BackgroundSample" unique_id=86826058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -82.81633)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube47" type="MeshInstance3D" parent="BackgroundSample" unique_id=647941404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -91.65267)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube48" type="MeshInstance3D" parent="BackgroundSample" unique_id=479176704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -86.55765)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube49" type="MeshInstance3D" parent="BackgroundSample" unique_id=35488787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -114.23546)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube50" type="MeshInstance3D" parent="BackgroundSample" unique_id=743394340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -117.04256)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube51" type="MeshInstance3D" parent="BackgroundSample" unique_id=967986822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -125.87889)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube52" type="MeshInstance3D" parent="BackgroundSample" unique_id=1475576126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -120.78386)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube53" type="MeshInstance3D" parent="BackgroundSample" unique_id=1434439499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -109.017166)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube54" type="MeshInstance3D" parent="BackgroundSample" unique_id=12122251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -111.824265)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube55" type="MeshInstance3D" parent="BackgroundSample" unique_id=1211405114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -120.66061)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube56" type="MeshInstance3D" parent="BackgroundSample" unique_id=710361998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -115.56558)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube57" type="MeshInstance3D" parent="BackgroundSample" unique_id=1319902525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -109.017166)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube58" type="MeshInstance3D" parent="BackgroundSample" unique_id=69193295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -111.824265)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube59" type="MeshInstance3D" parent="BackgroundSample" unique_id=1581214271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -120.66061)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube60" type="MeshInstance3D" parent="BackgroundSample" unique_id=222666711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -115.56558)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube61" type="MeshInstance3D" parent="BackgroundSample" unique_id=474013096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -142.68626)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube62" type="MeshInstance3D" parent="BackgroundSample" unique_id=739718718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -145.49336)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube63" type="MeshInstance3D" parent="BackgroundSample" unique_id=1570839033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -154.3297)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube64" type="MeshInstance3D" parent="BackgroundSample" unique_id=672522842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -149.23466)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube65" type="MeshInstance3D" parent="BackgroundSample" unique_id=1399806690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -137.46797)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube66" type="MeshInstance3D" parent="BackgroundSample" unique_id=1988914864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -140.27507)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube67" type="MeshInstance3D" parent="BackgroundSample" unique_id=952726952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -149.11142)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube68" type="MeshInstance3D" parent="BackgroundSample" unique_id=1811075113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -144.01639)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube69" type="MeshInstance3D" parent="BackgroundSample" unique_id=553086564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -137.46797)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube70" type="MeshInstance3D" parent="BackgroundSample" unique_id=1513340916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -140.27507)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube71" type="MeshInstance3D" parent="BackgroundSample" unique_id=867435990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -149.11142)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube72" type="MeshInstance3D" parent="BackgroundSample" unique_id=662559287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -144.01639)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube73" type="MeshInstance3D" parent="BackgroundSample" unique_id=172754695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -174.54868)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube74" type="MeshInstance3D" parent="BackgroundSample" unique_id=980258099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -177.35577)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube75" type="MeshInstance3D" parent="BackgroundSample" unique_id=1485964984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -186.19211)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube76" type="MeshInstance3D" parent="BackgroundSample" unique_id=914908222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -181.09708)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube77" type="MeshInstance3D" parent="BackgroundSample" unique_id=1863676775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -169.33038)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube78" type="MeshInstance3D" parent="BackgroundSample" unique_id=1001075396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -172.13748)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube79" type="MeshInstance3D" parent="BackgroundSample" unique_id=1757181566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -180.97383)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube80" type="MeshInstance3D" parent="BackgroundSample" unique_id=208159493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -175.8788)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube81" type="MeshInstance3D" parent="BackgroundSample" unique_id=1443385834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -169.33038)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube82" type="MeshInstance3D" parent="BackgroundSample" unique_id=698468775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -172.13748)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube83" type="MeshInstance3D" parent="BackgroundSample" unique_id=725875260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -180.97383)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube84" type="MeshInstance3D" parent="BackgroundSample" unique_id=790500411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -175.8788)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube85" type="MeshInstance3D" parent="BackgroundSample" unique_id=936163083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -202.07744)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube86" type="MeshInstance3D" parent="BackgroundSample" unique_id=219377878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -204.88454)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube87" type="MeshInstance3D" parent="BackgroundSample" unique_id=364550017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -213.72087)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube88" type="MeshInstance3D" parent="BackgroundSample" unique_id=478763405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.687171, -208.62584)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube89" type="MeshInstance3D" parent="BackgroundSample" unique_id=1244510849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -196.85915)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube90" type="MeshInstance3D" parent="BackgroundSample" unique_id=1459979300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -199.66624)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube91" type="MeshInstance3D" parent="BackgroundSample" unique_id=698437518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -208.5026)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube92" type="MeshInstance3D" parent="BackgroundSample" unique_id=598004437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7632396, -5.687171, -203.40756)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube93" type="MeshInstance3D" parent="BackgroundSample" unique_id=2115221520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -196.85915)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube94" type="MeshInstance3D" parent="BackgroundSample" unique_id=774916360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -199.66624)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube95" type="MeshInstance3D" parent="BackgroundSample" unique_id=993644878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -208.5026)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
+[node name="ReferenceCube96" type="MeshInstance3D" parent="BackgroundSample" unique_id=1567101924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -203.40756)
+mesh = SubResource("BoxMesh_gwmky")
+skeleton = NodePath("../..")
+
 [node name="SpookyTest" type="MeshInstance3D" parent="BackgroundSample" unique_id=58099691]
 transform = Transform3D(142.53, 0, 0, 0, -0.6641951, 142.52846, 0, -142.52846, -0.6641951, 3.8146973e-06, -430.40405, -212.39519)
 mesh = SubResource("TextMesh_2fgjs")

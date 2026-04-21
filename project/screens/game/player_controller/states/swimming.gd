@@ -12,6 +12,14 @@ var right_pull_ready : bool = false
 var breathing : bool = false
 var moving : bool = false
 
+var current_velocity : float = 0.0
+@export var velocity_per_stroke : float = 10.0
+@export var max_velocity : float = 20.0 
+@export var velocity_decay : float = 10.0
+var decay_accumulator : float = 0.0
+@export var decay_easing_time : float = 1.0
+
+
 func enter(_previous_state_path: String, _data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_animation_finished)
 	camera_animation.animation_finished.connect(_cam_animation_finished)
@@ -19,12 +27,21 @@ func enter(_previous_state_path: String, _data: Dictionary = {}) -> void:
 	animation_player.play("ReadyLeft")
 	event_manager.on_enter_event_state("HeadInWater")
 	
+
 func exit() -> void:
 	animation_player.animation_finished.disconnect(_animation_finished)
+	camera_animation.animation_finished.disconnect(_cam_animation_finished)
 
 func update(delta: float) -> void:
-	if moving:
-		player.move_and_collide(delta * Vector3.FORWARD * 10.0)
+	if current_velocity > 0.0:
+		# Update current velocity
+		var normalized_decay_progress = clampf(decay_accumulator/decay_easing_time, 0.0, 1.0)
+		var current_decay = velocity_decay * ease(normalized_decay_progress, 3.0)
+		current_velocity = maxf(0.0, current_velocity - velocity_decay * delta)
+		
+		if current_velocity > 0.0:
+			# Then move
+			player.move_and_collide(delta * Vector3.FORWARD * current_velocity)
 
 func _animation_finished(anim_name: String) -> void:
 	if anim_name == "ReadyLeft":
@@ -49,7 +66,7 @@ func handle_input(event: InputEvent) -> void:
 			left_pull_ready = false
 			current_side = "Right"
 			animation_player.play("PullLeft")
-			moving = true
+			current_velocity = minf(max_velocity, current_velocity + velocity_per_stroke)
 			animation_player.queue("ReadyRight")
 			if breathing:
 				camera_animation.play_backwards("BreatheRight")
@@ -60,7 +77,7 @@ func handle_input(event: InputEvent) -> void:
 			right_pull_ready = false
 			current_side = "Left"
 			animation_player.play("PullRight")
-			moving = true
+			current_velocity = minf(max_velocity, current_velocity + velocity_per_stroke)
 			animation_player.queue("ReadyLeft")
 			if breathing:
 				camera_animation.play_backwards("BreatheLeft")
