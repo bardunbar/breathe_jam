@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://7rfb32pwqesu"]
 
-[ext_resource type="Shader" uid="uid://cnodusow3hw1s" path="res://screens/waterline_gym/underwater_postprocess.gdshader" id="1_ry1sk"]
-[ext_resource type="Shader" uid="uid://n628bxmcno0j" path="res://screens/waterline_gym/water_surface.gdshader" id="2_g1n6r"]
+[ext_resource type="Shader" uid="uid://cnodusow3hw1s" path="res://shaders/underwater_postprocess.gdshader" id="1_ry1sk"]
+[ext_resource type="Shader" uid="uid://n628bxmcno0j" path="res://shaders/water_surface.gdshader" id="2_g1n6r"]
+[ext_resource type="Script" uid="uid://cgj4itmvfxjdh" path="res://scripts/water/floating_mesh_instance3D.gd" id="2_glvk8"]
+[ext_resource type="Script" uid="uid://cvl0jbtigcvs7" path="res://scripts/water/water_surface.gd" id="4_dc4pp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ry1sk"]
 render_priority = 0
 shader = ExtResource("1_ry1sk")
+shader_parameter/water_time = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_glvk8"]
 material = SubResource("ShaderMaterial_ry1sk")
@@ -18,6 +21,7 @@ size = Vector2(2, 2)
 render_priority = 0
 shader = ExtResource("2_g1n6r")
 shader_parameter/height_scale = 0.5
+shader_parameter/water_time = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_glvk8"]
 material = SubResource("ShaderMaterial_g1n6r")
@@ -27,7 +31,7 @@ subdivide_depth = 256
 [node name="WaterlineGym" type="Node3D" unique_id=296911887]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=268894357]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48786807, -0.65556395, -3.5970998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48786807, 2.714006, -3.5970998)
 
 [node name="Underwater_PostProcess" type="MeshInstance3D" parent="Camera3D" unique_id=791733948]
 extra_cull_margin = 16384.0
@@ -35,12 +39,303 @@ mesh = SubResource("QuadMesh_glvk8")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1346168638]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9492998, 0.5025551, -0.2863624)
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -17.176197, 1.072161, -14.837402)
 mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1242476939]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -16.347553, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=340330256]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -15.465773, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1222699947]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -14.637127, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=1243432737]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -13.836544, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=1299184684]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -13.007898, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=1233666061]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -12.126119, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="." unique_id=1727830935]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -11.297474, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="." unique_id=1064202687]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -10.506479, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="." unique_id=97112244]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -9.677834, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="." unique_id=499144620]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -8.796055, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="." unique_id=1800399734]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -7.9674087, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="." unique_id=170246349]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -7.166826, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="." unique_id=2144401441]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -6.3381805, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="." unique_id=68356343]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -5.4564004, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="." unique_id=379654608]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -4.627755, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="." unique_id=176423507]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -3.8458772, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="." unique_id=709093629]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -3.0172315, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="." unique_id=728287300]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -2.1354518, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="." unique_id=57376571]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -1.3068061, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="." unique_id=1013504836]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -0.5062232, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="." unique_id=247704059]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 0.32242203, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="." unique_id=589868692]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 1.2042022, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="." unique_id=2036215395]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 2.0328474, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="." unique_id=866346664]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 2.8535385, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="." unique_id=2128113322]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 3.6821823, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="." unique_id=1373557536]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 4.563963, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="." unique_id=1619024840]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 5.3926086, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="." unique_id=1768039928]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 6.1931915, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="." unique_id=2139649471]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 7.021837, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="." unique_id=130335849]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 7.903617, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="." unique_id=58310197]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 8.732262, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="." unique_id=739712867]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 9.523256, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="." unique_id=2032303245]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 10.351902, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="." unique_id=1329296316]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 11.233681, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="." unique_id=75512807]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 12.062326, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="." unique_id=1175507103]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 12.862909, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="." unique_id=596284956]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 13.691555, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="." unique_id=572693927]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 14.573336, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="." unique_id=1391187741]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 15.40198, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="." unique_id=1700313052]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 16.183859, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="." unique_id=352525235]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 17.012505, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="." unique_id=1018700654]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 17.894283, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="." unique_id=347839969]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 18.722929, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="." unique_id=1086813277]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 19.523512, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="." unique_id=699622571]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 20.352158, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="." unique_id=1156001909]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 21.233938, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="." unique_id=2083764425]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 22.062584, 1.072161, -14.837402)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=674060679]
+transform = Transform3D(0.9247398, 0.33153751, 0.18692024, -0.33768713, 0.94125783, 0.0011266917, -0.17556661, -0.06416246, 0.9823744, 3.502862, 1.072161, -9.044925)
+mesh = SubResource("BoxMesh_ry1sk")
+script = ExtResource("2_glvk8")
+offset = 0.46
 
 [node name="Surface" type="MeshInstance3D" parent="." unique_id=151077046]
-transform = Transform3D(19.803347, 0, 0, 0, 0.02775236, 0, 0, 0, 23.932873, 0, -0.02, 0)
+transform = Transform3D(19.803347, 0, 0, 0, 0.02775236, 0, 0, 0, 23.932873, 0, 0, 0)
 mesh = SubResource("PlaneMesh_glvk8")
+script = ExtResource("4_dc4pp")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1722726410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.288303, 1.2972867, 1.5975139)
