@@ -72,21 +72,20 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_ooaxr"]
 resource_name = "StrokeLeft"
-length = 0.5
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("ArmLeft")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.13333334, 1, -0.707, 0, 0, 0.707, 0.5, 1, 0.989, 0, 0, 0.148)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.39999998, 1, -0.707, 0, 0, 0.707, 1, 1, 0.989, 0, 0, 0.148)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = false
 tracks/1/path = NodePath("Camera3D")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.5070571, 0, 0, 0.8619125, 0.23333333, 1, -0.50698227, -0.008712215, 0.014809312, 0.8617853, 0.5, 1, -0.5070571, 0, 0, 0.8619125)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.5070571, 0, 0, 0.8619125, 0.5, 1, -0.50698227, -0.008712215, 0.014809312, 0.8617853, 1, 1, -0.5070571, 0, 0, 0.8619125)
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -94,29 +93,42 @@ tracks/2/path = NodePath("ArmLeft:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Swimming")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Left"],
+"method": &"trigger_breath"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_qy5q8"]
 resource_name = "StrokeRight"
-length = 0.5
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("ArmRight")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.13333334, 1, -0.707, 0, 0, 0.707, 0.5, 1, 0.989, 0, 0, 0.148)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.39999998, 1, -0.707, 0, 0, 0.707, 1, 1, 0.989, 0, 0, 0.148)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = false
 tracks/1/path = NodePath("Camera3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.5070571, 0, 0, 0.8619125, 0.23333333, 1, -0.50697345, 0.009207727, -0.0156516, 0.86177033, 0.5, 1, -0.5070571, 0, 0, 0.8619125)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.5070571, 0, 0, 0.8619125, 0.5, 1, -0.50697345, 0.009207727, -0.0156516, 0.86177033, 1, 1, -0.5070571, 0, 0, 0.8619125)
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -124,10 +136,24 @@ tracks/2/path = NodePath("ArmRight:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Swimming")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Right"],
+"method": &"trigger_breath"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qy5q8"]
@@ -139,10 +165,47 @@ _data = {
 &"StrokeRight": SubResource("Animation_qy5q8")
 }
 
+[sub_resource type="Animation" id="Animation_6xy21"]
+resource_name = "BreatheLeft"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.5070573, 0, 0, 0.86191237, 0.33333334, 1, -0.32045114, 0.66796756, -0.39296085, 0.5447131, 0.6333333, 1, -0.32045114, 0.66796756, -0.39296085, 0.5447131, 1, 1, -0.50705737, 0, 0, 0.86191237)
+
+[sub_resource type="Animation" id="Animation_ew7rs"]
+resource_name = "BreatheRight"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.5070573, 0, 0, 0.86191237, 0.33333334, 1, -0.3202522, -0.6682432, 0.393123, 0.5443749, 0.6333333, 1, -0.3202522, -0.6682432, 0.393123, 0.5443749, 1, 1, -0.50705737, 0, 0, 0.86191237)
+
+[sub_resource type="Animation" id="Animation_mwpm7"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.5070573, 0, 0, 0.86191237)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jucbg"]
+_data = {
+&"BreatheLeft": SubResource("Animation_6xy21"),
+&"BreatheRight": SubResource("Animation_ew7rs"),
+&"RESET": SubResource("Animation_mwpm7")
+}
+
 [node name="Character" type="Node3D" unique_id=1582091954]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1297733054]
-transform = Transform3D(1, 0, 0, 0, 0.4857863, 0.8740778, 0, -0.8740778, 0.4857863, 0, 1.0030421, 0.032489777)
+transform = Transform3D(1, 0, 0, 0, 0.48578593, 0.87407804, 0, -0.8740781, 0.48578587, 0, 1.0030421, 0.032489777)
 
 [node name="ArmLeft" type="Node3D" parent="." unique_id=1629165829]
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.84294, 0, 0.38575375)
@@ -157,7 +220,7 @@ transform = Transform3D(0.45634297, 0, 0, 0, 0.3340845, 0, 0, 0, 0.3016554, 0, 1
 mesh = SubResource("CapsuleMesh_gwmky")
 
 [node name="ArmRight" type="Node3D" parent="." unique_id=1510535650]
-transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.84, 0, 0.386)
+transform = Transform3D(1, 0, 0, 0, -0.95619285, -0.29273656, 0, 0.29273656, -0.95619285, 0.84, 0, 0.386)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ArmRight" unique_id=1111192326]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, 0)
@@ -190,3 +253,4 @@ libraries/ = SubResource("AnimationLibrary_qy5q8")
 
 [node name="CameraAnimations" type="AnimationPlayer" parent="." unique_id=936885266]
 unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_jucbg")
