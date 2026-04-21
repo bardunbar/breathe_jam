@@ -215,10 +215,14 @@ _data = {
 &"RESET": SubResource("Animation_mwpm7")
 }
 
-[node name="Character" type="Node3D" unique_id=1582091954]
+[sub_resource type="SphereShape3D" id="SphereShape3D_h7fdk"]
+
+[node name="Character" type="CharacterBody3D" unique_id=1292171272 groups=["Player"]]
+motion_mode = 1
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1297733054]
 transform = Transform3D(1, 0, 0, 0, 0.4857858, 0.87407804, 0, -0.8740779, 0.48578587, 0, 1.0030421, -0.028951406)
+current = true
 
 [node name="ArmLeft" type="Node3D" parent="." unique_id=1629165829]
 transform = Transform3D(1, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, -0.84294, 0, 0.38575375)
@@ -263,3 +267,6 @@ libraries/ = SubResource("AnimationLibrary_qy5q8")
 [node name="CameraAnimations" type="AnimationPlayer" parent="." unique_id=936885266]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_jucbg")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1408074459]
+shape = SubResource("SphereShape3D_h7fdk")

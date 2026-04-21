@@ -44,7 +44,7 @@ void fragment() {
 	// Visualize linear depth
 	//ALBEDO.rgb = vec3(fract(linear_depth));
 
-	ALBEDO.rgb = vec3(0.1f, 0.1f, 0.5f);
+	ALBEDO.rgb = mix(vec3(0.1f, 0.1f, 0.5f), vec3(0.0), depth);
 	//ALBEDO.rgb = world_eclip_position.xyz;
 	ALPHA = below_water_mask * 0.9f;
 }

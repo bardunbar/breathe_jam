@@ -19,6 +19,10 @@ run/main_scene="uid://cg2pqihw6wjud"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Player="player group for checking collision"
+
 [input]
 
 game_open_play_menu={
