@@ -2,8 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b1lg0qenj04wi" path="res://screens/game/player_controller/swimmer.tscn" id="1_gwmky"]
 [ext_resource type="Script" uid="uid://bxfsubi7cw6cl" path="res://scripts/event_management/trigger_box.gd" id="2_2fgjs"]
+[ext_resource type="Script" uid="uid://b1ylgopsxp2s2" path="res://scripts/event_management/visibility_event.gd" id="2_8wecb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwmky"]
+
+[sub_resource type="TextMesh" id="TextMesh_2fgjs"]
+text = "Spoooooky"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwmky"]
 
@@ -83,6 +87,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.092333, -5.687171, -5.13530
 mesh = SubResource("BoxMesh_gwmky")
 skeleton = NodePath("../..")
 
+[node name="SpookyTest" type="MeshInstance3D" parent="BackgroundSample" unique_id=58099691]
+transform = Transform3D(142.53, 0, 0, 0, -0.6641951, 142.52846, 0, -142.52846, -0.6641951, 3.8146973e-06, -430.40405, -212.39519)
+mesh = SubResource("TextMesh_2fgjs")
+script = ExtResource("2_8wecb")
+event_name = "show_spooky"
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=549350559]
 transform = Transform3D(0.9100915, 0.08634407, 0.40531242, -0.41440734, 0.18962261, 0.8901179, 0, -0.97805315, 0.20835555, 3.3562713, 3.5171819, -2.879443)
 
@@ -92,8 +102,8 @@ environment = SubResource("Environment_8wecb")
 [node name="TriggerBox" type="Area3D" parent="." unique_id=846302498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.2571487)
 script = ExtResource("2_2fgjs")
-event_name = "creepy"
-state_name = "head_up"
+event_name = "show_spooky"
+state_name = "Breathing"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerBox" unique_id=479436757]
 shape = SubResource("BoxShape3D_8wecb")

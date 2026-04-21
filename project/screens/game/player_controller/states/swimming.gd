@@ -4,6 +4,8 @@ extends State
 @onready var animation_player : AnimationPlayer = %PlayerAnimations
 @onready var camera_animation : AnimationPlayer = %CameraAnimations
 
+var event_manager : EventManager = preload("res://scripts/event_management/event_manager.gd").get_manager()
+
 var current_side : String = "Left"
 var left_pull_ready : bool = false
 var right_pull_ready : bool = false
@@ -12,8 +14,10 @@ var moving : bool = false
 
 func enter(_previous_state_path: String, _data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_animation_finished)
+	camera_animation.animation_finished.connect(_cam_animation_finished)
 	
 	animation_player.play("ReadyLeft")
+	event_manager.on_enter_event_state("HeadInWater")
 	
 func exit() -> void:
 	animation_player.animation_finished.disconnect(_animation_finished)
@@ -28,7 +32,13 @@ func _animation_finished(anim_name: String) -> void:
 	elif anim_name == "ReadyRight":
 		right_pull_ready = true
 	moving = false
-		
+
+func _cam_animation_finished(anim_name: String) -> void:
+	if anim_name == "BreatheRight" or anim_name == "BreatheLeft": #transition between breathing and head in water
+		if breathing:
+			event_manager.on_enter_event_state("Breathing")
+		else:
+			event_manager.on_enter_event_state("HeadInWater")
 
 func trigger_breath(_side: String) -> void:
 	pass

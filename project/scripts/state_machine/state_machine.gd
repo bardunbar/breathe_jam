@@ -24,7 +24,6 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	state = get_node(target_state_path)
 	state.enter(previous_state_path, data)
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	state.handle_input(event)
 	
