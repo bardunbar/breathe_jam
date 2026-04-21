@@ -22,15 +22,14 @@ float noise(vec2 x) {
 }
 
 float fbm(vec2 x) {
-  float height = 0.0;
-  float amplitude = 0.5;
-  float frequency = 3.0;
-  for (int i = 0; i < 6; i++){
-    height += noise(x * frequency) * amplitude;
-    amplitude *= 0.5;
-    frequency *= 2.0;
-  }
-  return height;
+	float height = 0.0;
+	float amplitude = 0.75;
+	float frequency = 0.50;
+	float wave_height = 0.7f;
+	float wave_length = 0.50f;
+	height += noise((x + (TIME * -0.1)) * frequency) * amplitude;
+	height += cos(x.x * wave_length + TIME) * wave_height;
+	return height;
 }
 
 void vertex() {
@@ -56,12 +55,13 @@ void fragment() {
 	vec4 world_clip = INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(clip, 1.0);
 	
 	
-	float height = (test(world_clip.xz * 0.05f) * 20.f) + 0.4f;
 	vec4 world_frag = INV_VIEW_MATRIX * vec4(VERTEX, 1.f);
 	vec3 world_position = world.xyz / world.w;
+	vec3 world_clip_position = world_clip.xyz / world_clip.w;
+	float height = fbm(world_clip_position.xz);
 	
 	
-	float below_water_mask = 1.f - clamp((world_clip.y - height), 0.f, 0.001f) * 1000.f;
+	float below_water_mask = 1.f - clamp((world_clip_position.y - height), 0.f, 0.004f) * 250.f;
 	//float below_water_mask = clamp((world_clip.y), 0.f, 0.001f) * 1000.f;
 	//float below_water_mask = (1.f - clamp((world_clip.y) * 1000.f, 0.f, 1.f));
 	//float below_water_mask = 1.f - clamp((world_clip.y), 0.f, 1.f);
@@ -70,8 +70,8 @@ void fragment() {
 	//ALBEDO.rgb = vec3(fract(linear_depth));
 
 	ALBEDO.rgb = vec3(0.1f, 0.1f, 0.5f);
-	//ALBEDO.rgb = world_position.xyz;
-	ALPHA = below_water_mask * 0.5f;
+	//ALBEDO.rgb = world_eclip_position.xyz;
+	ALPHA = below_water_mask * 0.9f;
 }
 
 //void light() {
