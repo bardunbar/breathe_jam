@@ -1,36 +1,11 @@
 shader_type spatial;
+#include "res://shaders/water_function_lib.gdshaderinc"
+uniform float water_time = 0.0;
+
 // Prevent the quad from being affected by lighting and fog. This also improves performance.
 render_mode unshaded, fog_disabled;
 
 uniform sampler2D depth_texture : hint_depth_texture;
-
-float test(vec2 p) {
-	return cos(p.x) * sin(p.y);
-}
-
-float hash(vec2 p) {
-  return fract(sin(dot(p * 17.17, vec2(14.91, 67.31))) * 4791.9511);
-}
-
-float noise(vec2 x) {
-  vec2 p = floor(x);
-  vec2 f = fract(x);
-  f = f * f * (3.0 - 2.0 * f);
-  vec2 a = vec2(1.0, 0.0);
-  return mix(mix(hash(p + a.yy), hash(p + a.xy), f.x),
-         mix(hash(p + a.yx), hash(p + a.xx), f.x), f.y);
-}
-
-float fbm(vec2 x) {
-	float height = 0.0;
-	float amplitude = 0.75;
-	float frequency = 0.50;
-	float wave_height = 0.7f;
-	float wave_length = 0.50f;
-	height += noise((x + (TIME * -0.1)) * frequency) * amplitude;
-	height += cos(x.x * wave_length + TIME) * wave_height;
-	return height;
-}
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -58,7 +33,7 @@ void fragment() {
 	vec4 world_frag = INV_VIEW_MATRIX * vec4(VERTEX, 1.f);
 	vec3 world_position = world.xyz / world.w;
 	vec3 world_clip_position = world_clip.xyz / world_clip.w;
-	float height = fbm(world_clip_position.xz);
+	float height = fbm(world_clip_position.xz, water_time);
 	
 	
 	float below_water_mask = 1.f - clamp((world_clip_position.y - height), 0.f, 0.004f) * 250.f;
