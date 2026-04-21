@@ -14,19 +14,20 @@ size = Vector2(2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ry1sk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_glvk8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1n6r"]
 render_priority = 0
 shader = ExtResource("2_g1n6r")
 shader_parameter/height_scale = 0.5
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ry1sk"]
-material = SubResource("ShaderMaterial_glvk8")
-subdivide_width = 128
-subdivide_depth = 128
+[sub_resource type="PlaneMesh" id="PlaneMesh_glvk8"]
+material = SubResource("ShaderMaterial_g1n6r")
+subdivide_width = 256
+subdivide_depth = 256
 
 [node name="WaterlineGym" type="Node3D" unique_id=296911887]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=268894357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48786807, -0.65556395, -3.5970998)
 
 [node name="Underwater_PostProcess" type="MeshInstance3D" parent="Camera3D" unique_id=791733948]
 extra_cull_margin = 16384.0
@@ -34,12 +35,15 @@ mesh = SubResource("QuadMesh_glvk8")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1346168638]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.355379, 0.040837467, -0.2863624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9492998, 0.5025551, -0.2863624)
 mesh = SubResource("BoxMesh_ry1sk")
 
 [node name="Surface" type="MeshInstance3D" parent="." unique_id=151077046]
-transform = Transform3D(-3.4215753, 0, 0, 0, 1.2382214, -2.4327056e-07, 0, 1.08248756e-07, 2.782691, 0, 0.020233274, 0.012524128)
-mesh = SubResource("PlaneMesh_ry1sk")
+transform = Transform3D(19.803347, 0, 0, 0, 0.02775236, 0, 0, 0, 23.932873, 0, -0.02, 0)
+mesh = SubResource("PlaneMesh_glvk8")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1722726410]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.566047, 0.44596362, -2.2715495)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.288303, 1.2972867, 1.5975139)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=986255852]
+transform = Transform3D(0.57614344, -0.31310534, -0.7549993, 0.53733766, 0.84114265, 0.06121504, 0.61589533, -0.44095826, 0.6528622, 0, 0, 0)

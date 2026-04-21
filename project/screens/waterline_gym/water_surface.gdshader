@@ -20,32 +20,36 @@ float noise(vec2 x) {
 }
 
 float fbm(vec2 x) {
-  float height = 0.0;
-  float amplitude = 0.5;
-  float frequency = 3.0;
-  for (int i = 0; i < 6; i++){
-    height += noise(x * frequency) * amplitude;
-    amplitude *= 0.5;
-    frequency *= 2.0;
-  }
-  return height;
+	float height = 0.0;
+	float amplitude = 0.75;
+	float frequency = 0.50;
+	float wave_height = 0.7f;
+	float wave_length = 0.50f;
+	height += noise((x + (TIME * -0.1)) * frequency) * amplitude;
+	height += cos(x.x * wave_length + TIME) * wave_height;
+	return height;
 }
 
 void vertex() {
 	// Called for every vertex the material is visible on.
-	float height = test((VERTEX.xz));
+	float height = fbm((VERTEX.xz));
 	//float height = fbm((VERTEX.xz * 0.5) + (TIME * 0.1f));
 	VERTEX.y += height;
-	COLOR.rgb = vec3(0.1f, 0.2f, 1.f) * height;
+	//COLOR.rgb = vec3(0.1f, 0.4f, 1.f) * clamp(height + 0.5f, 0.0f, 1.f);
+	COLOR.rgb = vec3(0.1f, 0.4f, 1.f);
 	
-	//vec2 e = vec2(0.01, 0.0);
-	//vec3 normal = normalize(vec3(fbm(VERTEX.xz - e) - fbm(VERTEX.xz + e), 2.0 * e.x, fbm(VERTEX.xz - e.yx) - fbm(VERTEX.xz + e.yx)));
-	//NORMAL = normal;
+	vec2 e = vec2(0.01f, 0.0f);
+	vec3 normal = normalize(vec3(fbm(VERTEX.xz - e) - fbm(VERTEX.xz + e), 2.0 * e.x, fbm(VERTEX.xz - e.yx) - fbm(VERTEX.xz + e.yx)));
+	//COLOR.r = normal.x;
+	//COLOR.gb = vec2(0.f, 0.f);
+	NORMAL = normal;
 }
 
 void fragment() {
 	// Called for every pixel the material is visible on.
 	ALBEDO = COLOR.rgb;
+	//ALBEDO = vec3(dot(vec3(0.f, 1.f, 0.f), NORMAL), 1.f, 1.f);
+	ALPHA = clamp(dot(vec3(0.f, 1.f, 0.f), NORMAL), 0.2f, 0.95f);
 }
 
 //void light() {
