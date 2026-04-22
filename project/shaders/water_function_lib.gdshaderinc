@@ -15,12 +15,12 @@ float noise(vec2 x) {
          mix(hash(p + a.yx), hash(p + a.xx), f.x), f.y);
 }
 
-float fbm(vec2 x, float time) {
+float fbm(vec2 x, float time, float height_mult) {
 	float height = 0.0;
-	float amplitude = 0.2;
+	float amplitude = 0.2 * height_mult;
 	//float amplitude = 0.0;
 	float frequency = 0.3;
-	float wave_height = 0.7f;
+	float wave_height = 0.7f * height_mult;
 	//float wave_height = 0.0f;
 	float wave_length = 0.50f;
 	float time_dist = time;
@@ -29,7 +29,7 @@ float fbm(vec2 x, float time) {
 		height += sin((x.y * frequency * i) + time_dist) * i * amplitude;
 		height += cos((x.x * -frequency * i) + time_dist) * i * amplitude;
 		frequency += 0.1f;
-		amplitude -= 0.07f;
+		amplitude -= 0.07f * height_mult;
 		time_dist = cos(time_dist);
 	}
 	//height += noise((x + (time * -0.1)) * frequency) * amplitude;

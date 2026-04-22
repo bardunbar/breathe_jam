@@ -1,19 +1,19 @@
 shader_type spatial;
 #include "res://shaders/water_function_lib.gdshaderinc"
 render_mode world_vertex_coords;
-uniform float height_scale = 0.5;
+uniform float wave_height = 1.0;
 uniform float water_time = 0.0;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
-	float height = fbm((VERTEX.xz), water_time);
+	float height = fbm((VERTEX.xz), water_time, wave_height);
 	//float height = fbm((VERTEX.xz * 0.5) + (TIME * 0.1f));
 	VERTEX.y += height;
 	//COLOR.rgb = vec3(0.1f, 0.4f, 1.f) * clamp(height + 0.5f, 0.0f, 1.f);
 	COLOR.rgb = vec3(0.1f, 0.4f, 1.f);
 	
 	vec2 e = vec2(0.01f, 0.0f);
-	vec3 normal = normalize(vec3(fbm(VERTEX.xz - e, water_time) - fbm(VERTEX.xz + e, water_time), 2.0 * e.x, fbm(VERTEX.xz - e.yx, water_time) - fbm(VERTEX.xz + e.yx, water_time)));
+	vec3 normal = normalize(vec3(fbm(VERTEX.xz - e, water_time, wave_height) - fbm(VERTEX.xz + e, water_time, wave_height), 2.0 * e.x, fbm(VERTEX.xz - e.yx, water_time, wave_height) - fbm(VERTEX.xz + e.yx, water_time, wave_height)));
 	//COLOR.r = normal.x;
 	//COLOR.gb = vec2(0.f, 0.f);
 	NORMAL = normal;

@@ -6,3 +6,4 @@ var WaterLibrary = preload("res://scripts/water/water_utility_library.gd")
 func _process(delta: float) -> void:
 	var material: Material = get_active_material(0)
 	material.set_shader_parameter("water_time", WaterLibrary.water_time)
+	material.set_shader_parameter("wave_height", WaterLibrary.cur_water_wave_height)

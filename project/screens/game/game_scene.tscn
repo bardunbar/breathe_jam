@@ -7,19 +7,23 @@
 [ext_resource type="Script" uid="uid://cvl0jbtigcvs7" path="res://scripts/water/water_surface.gd" id="5_e0cji"]
 [ext_resource type="Environment" uid="uid://c2xu1fssvdeut" path="res://assets/world_environment.tres" id="6_sshwk"]
 [ext_resource type="PackedScene" uid="uid://b1lg0qenj04wi" path="res://screens/game/player_controller/swimmer.tscn" id="7_pkstu"]
+[ext_resource type="Script" uid="uid://bxfsubi7cw6cl" path="res://scripts/event_management/trigger_box.gd" id="8_1v58h"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gp5ea"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1n6r"]
 render_priority = 0
 shader = ExtResource("4_1v58h")
-shader_parameter/height_scale = 0.5
+shader_parameter/wave_height = 1.0
 shader_parameter/water_time = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nfvgk"]
 material = SubResource("ShaderMaterial_g1n6r")
 subdivide_width = 256
 subdivide_depth = 256
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e0cji"]
+size = Vector3(3.2939453, 3.4932861, 6.5844727)
 
 [node name="GameScene" type="Node3D" unique_id=555134819]
 script = ExtResource("1_e6mtp")
@@ -43,10 +47,41 @@ transform = Transform3D(0.57614344, -0.31310534, -0.7549993, 0.53733766, 0.84114
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1119156907]
 environment = ExtResource("6_sshwk")
 
-[node name="Surface" type="MeshInstance3D" parent="." unique_id=810200653]
+[node name="Water_Surface" type="MeshInstance3D" parent="." unique_id=810200653]
 transform = Transform3D(25.05807, 0, 0, 0, 0.02775236, 0, 0, 0, 23.932873, 0, 0, 0)
 mesh = SubResource("PlaneMesh_nfvgk")
 script = ExtResource("5_e0cji")
 player_offset = 0.0
 
 [node name="Character" parent="." unique_id=1292171272 instance=ExtResource("7_pkstu")]
+
+[node name="TriggerBox" type="Area3D" parent="." unique_id=625840913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.408674)
+script = ExtResource("8_1v58h")
+trigger_event = false
+event_name = "show_spooky"
+state_name = "Breathing"
+trigger_water_change = true
+new_water_speed = 2.0
+new_wave_height = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerBox" unique_id=1176975317]
+shape = SubResource("BoxShape3D_e0cji")
+debug_color = Color(0.8807644, 0.3370281, 3.85046e-07, 1)
+
+[node name="TriggerBox2" type="Area3D" parent="." unique_id=277658893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.457024)
+script = ExtResource("8_1v58h")
+trigger_event = false
+event_name = "show_spooky"
+state_name = "Breathing"
+trigger_water_change = true
+new_water_speed = 0.5
+new_wave_height = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerBox2" unique_id=1960866069]
+shape = SubResource("BoxShape3D_e0cji")
+debug_color = Color(0.8807644, 0.3370281, 3.85046e-07, 1)
+
+[connection signal="body_entered" from="TriggerBox" to="TriggerBox" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerBox2" to="TriggerBox2" method="_on_body_entered"]
