@@ -18,8 +18,10 @@ float noise(vec2 x) {
 float fbm(vec2 x, float time) {
 	float height = 0.0;
 	float amplitude = 0.2;
+	//float amplitude = 0.0;
 	float frequency = 0.3;
 	float wave_height = 0.7f;
+	//float wave_height = 0.0f;
 	float wave_length = 0.50f;
 	float time_dist = time;
 	for(float i = 1.f; i < 3.f; i = i + 1.f)

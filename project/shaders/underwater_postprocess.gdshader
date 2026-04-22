@@ -46,7 +46,7 @@ void fragment() {
 
 	ALBEDO.rgb = mix(vec3(0.1f, 0.1f, 0.5f), vec3(0.0), depth);
 	//ALBEDO.rgb = world_eclip_position.xyz;
-	ALPHA = below_water_mask * 0.9f;
+	ALPHA = below_water_mask * 0.5f;
 }
 
 //void light() {
