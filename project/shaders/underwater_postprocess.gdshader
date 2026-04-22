@@ -1,6 +1,7 @@
 shader_type spatial;
 #include "res://shaders/water_function_lib.gdshaderinc"
 uniform float water_time = 0.0;
+uniform float wave_height = 1.0;
 
 // Prevent the quad from being affected by lighting and fog. This also improves performance.
 render_mode unshaded, fog_disabled;
@@ -33,7 +34,7 @@ void fragment() {
 	vec4 world_frag = INV_VIEW_MATRIX * vec4(VERTEX, 1.f);
 	vec3 world_position = world.xyz / world.w;
 	vec3 world_clip_position = world_clip.xyz / world_clip.w;
-	float height = fbm(world_clip_position.xz, water_time);
+	float height = fbm(world_clip_position.xz, water_time, wave_height);
 	
 	
 	float below_water_mask = 1.f - clamp((world_clip_position.y - height), 0.f, 0.004f) * 250.f;
