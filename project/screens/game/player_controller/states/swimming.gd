@@ -3,6 +3,8 @@ extends State
 @onready var player : CharacterBody3D = $"../.."
 @onready var animation_player : AnimationPlayer = %PlayerAnimations
 @onready var camera_animation : AnimationPlayer = %CameraAnimations
+@onready var underwater_splash : AudioStreamPlayer3D = %UnderwaterSplash
+@onready var underwater_pull : AudioStreamPlayer3D = %UnderwaterPull
 
 var event_manager : EventManager = preload("res://scripts/event_management/event_manager.gd").get_manager()
 
@@ -68,6 +70,7 @@ func handle_input(event: InputEvent) -> void:
 			animation_player.play("PullLeft")
 			current_velocity = minf(max_velocity, current_velocity + velocity_per_stroke)
 			animation_player.queue("ReadyRight")
+			do_pull_sfx()
 			if breathing:
 				camera_animation.play_backwards("BreatheRight")
 				breathing = false
@@ -79,6 +82,7 @@ func handle_input(event: InputEvent) -> void:
 			animation_player.play("PullRight")
 			current_velocity = minf(max_velocity, current_velocity + velocity_per_stroke)
 			animation_player.queue("ReadyLeft")
+			do_pull_sfx()
 			if breathing:
 				camera_animation.play_backwards("BreatheLeft")
 				breathing = false
@@ -90,3 +94,9 @@ func handle_input(event: InputEvent) -> void:
 				camera_animation.play("BreatheRight")
 			else:
 				camera_animation.play("BreatheLeft")
+				
+func do_pull_sfx() -> void:
+	underwater_pull.play()
+	
+func do_splash_sfx() -> void:
+	underwater_splash.play()
