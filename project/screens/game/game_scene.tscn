@@ -2,8 +2,24 @@
 
 [ext_resource type="Script" uid="uid://cqdnoi24guymt" path="res://screens/game/game_script.gd" id="1_e6mtp"]
 [ext_resource type="PackedScene" uid="uid://c4oy6yui5ffhj" path="res://screens/play_menu/play_menu_scene.tscn" id="2_jjnch"]
+[ext_resource type="Script" uid="uid://cgj4itmvfxjdh" path="res://scripts/water/floating_mesh_instance3D.gd" id="3_tvl6b"]
+[ext_resource type="Shader" uid="uid://n628bxmcno0j" path="res://shaders/water_surface.gdshader" id="4_1v58h"]
+[ext_resource type="Script" uid="uid://cvl0jbtigcvs7" path="res://scripts/water/water_surface.gd" id="5_e0cji"]
+[ext_resource type="Environment" uid="uid://c2xu1fssvdeut" path="res://assets/world_environment.tres" id="6_sshwk"]
+[ext_resource type="PackedScene" uid="uid://b1lg0qenj04wi" path="res://screens/game/player_controller/swimmer.tscn" id="7_pkstu"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_uald8"]
+[sub_resource type="BoxMesh" id="BoxMesh_gp5ea"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1n6r"]
+render_priority = 0
+shader = ExtResource("4_1v58h")
+shader_parameter/height_scale = 0.5
+shader_parameter/water_time = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nfvgk"]
+material = SubResource("ShaderMaterial_g1n6r")
+subdivide_width = 256
+subdivide_depth = 256
 
 [node name="GameScene" type="Node3D" unique_id=555134819]
 script = ExtResource("1_e6mtp")
@@ -12,13 +28,25 @@ play_menu = ExtResource("2_jjnch")
 [node name="InterfaceLayer" type="CanvasLayer" parent="." unique_id=1732371855]
 unique_name_in_owner = true
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=926638979]
-transform = Transform3D(1, 0, 0, 0, 0.9976664, 0.06827648, 0, -0.06827648, 0.9976664, 0, 1.3488567, 0)
-current = true
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=695955817]
+transform = Transform3D(0.28204566, 0.10111894, 0.057010688, -0.1029946, 0.2870836, 0.00034362994, -0.053547822, -0.019569548, 0.2996242, 0.46503687, 1.072161, -9.044925)
+mesh = SubResource("BoxMesh_gp5ea")
+script = ExtResource("3_tvl6b")
+offset = 0.46
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=59656687]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.3745742)
-mesh = SubResource("BoxMesh_uald8")
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=877009146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.288303, 1.2972867, 1.5975139)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793379381]
-transform = Transform3D(0.2287587, 0.7428622, -0.6291464, 0, 0.6462838, 0.76309717, 0.97348315, -0.1745651, 0.14784303, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=474694872]
+transform = Transform3D(0.57614344, -0.31310534, -0.7549993, 0.53733766, 0.84114265, 0.06121504, 0.61589533, -0.44095826, 0.6528622, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1119156907]
+environment = ExtResource("6_sshwk")
+
+[node name="Surface" type="MeshInstance3D" parent="." unique_id=810200653]
+transform = Transform3D(25.05807, 0, 0, 0, 0.02775236, 0, 0, 0, 23.932873, 0, 0, 0)
+mesh = SubResource("PlaneMesh_nfvgk")
+script = ExtResource("5_e0cji")
+player_offset = 0.0
+
+[node name="Character" parent="." unique_id=1292171272 instance=ExtResource("7_pkstu")]

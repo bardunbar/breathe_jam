@@ -1,8 +1,20 @@
 [gd_scene format=3 uid="uid://b1lg0qenj04wi"]
 
 [ext_resource type="Script" uid="uid://bv1n4b2nb2qhn" path="res://scripts/state_machine/state_machine.gd" id="1_0lhhj"]
+[ext_resource type="Shader" uid="uid://cnodusow3hw1s" path="res://shaders/underwater_postprocess.gdshader" id="1_m15ch"]
 [ext_resource type="Script" uid="uid://bk5o1qx0l63fp" path="res://screens/game/player_controller/states/swimming.gd" id="2_m15ch"]
+[ext_resource type="Script" uid="uid://bv27kj6t37txv" path="res://scripts/camera_postprocess.gd" id="2_ooaxr"]
 [ext_resource type="Script" uid="uid://bgiacvfnnbj8w" path="res://screens/game/player_controller/states/sighting.gd" id="4_qy5q8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ry1sk"]
+render_priority = 0
+shader = ExtResource("1_m15ch")
+shader_parameter/water_time = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ooaxr"]
+material = SubResource("ShaderMaterial_ry1sk")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xk10r"]
 
@@ -186,6 +198,13 @@ tracks/0/path = NodePath("Camera3D")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -0.50705737, 0, 0, 0.8619123, 0.3, 1, -0.35854056, 0.6094694, -0.35854682, 0.60945874)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.3, 1, 0, 0.25, 0)
 
 [sub_resource type="Animation" id="Animation_suf8c"]
 resource_name = "BreatheRight"
@@ -197,6 +216,13 @@ tracks/0/path = NodePath("Camera3D")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -0.50705737, 0, 0, 0.8619123, 0.3, 1, -0.3581712, -0.6100967, 0.35891587, 0.6088308)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.3, 1, 0, 0.25, 0)
 
 [sub_resource type="Animation" id="Animation_mwpm7"]
 length = 0.001
@@ -221,11 +247,17 @@ _data = {
 motion_mode = 1
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1297733054]
-transform = Transform3D(1, 0, 0, 0, 0.4857858, 0.87407804, 0, -0.8740779, 0.48578587, 0, 1.0030421, -0.028951406)
+transform = Transform3D(1, 0, 0, 0, 0.4857858, 0.8740779, 0, -0.8740779, 0.4857858, 0, 0, 0)
 current = true
 
+[node name="Underwater_PostProcess" type="MeshInstance3D" parent="Camera3D" unique_id=1254536298]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_ooaxr")
+skeleton = NodePath("../..")
+script = ExtResource("2_ooaxr")
+
 [node name="ArmLeft" type="Node3D" parent="." unique_id=1629165829]
-transform = Transform3D(1, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, -0.84294, 0, 0.38575375)
+transform = Transform3D(1, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, -0.84294, -0.81253725, 0.38575375)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ArmLeft" unique_id=1713140071]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, 0)
@@ -237,7 +269,7 @@ transform = Transform3D(0.45634297, 0, 0, 0, 0.3340845, 0, 0, 0, 0.3016554, 0, 1
 mesh = SubResource("CapsuleMesh_gwmky")
 
 [node name="ArmRight" type="Node3D" parent="." unique_id=1510535650]
-transform = Transform3D(1, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0.84, 0, 0.386)
+transform = Transform3D(1, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0.84, -0.81253725, 0.386)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ArmRight" unique_id=1111192326]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 1, 0)
@@ -270,3 +302,4 @@ libraries/ = SubResource("AnimationLibrary_jucbg")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1408074459]
 shape = SubResource("SphereShape3D_h7fdk")
+debug_color = Color(0, 0.61960787, 0.30588236, 1)
