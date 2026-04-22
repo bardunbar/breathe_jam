@@ -4,6 +4,7 @@ extends State
 @onready var animation_player : AnimationPlayer = %PlayerAnimations
 @onready var camera_animation : AnimationPlayer = %CameraAnimations
 @onready var underwater_splash : AudioStreamPlayer3D = %UnderwaterSplash
+@onready var water_splash : AudioStreamPlayer3D = %WaterSplash
 @onready var underwater_pull : AudioStreamPlayer3D = %UnderwaterPull
 
 var event_manager : EventManager = preload("res://scripts/event_management/event_manager.gd").get_manager()
@@ -21,6 +22,14 @@ var current_velocity : float = 0.0
 var decay_accumulator : float = 0.0
 @export var decay_easing_time : float = 1.0
 
+var default_underwater_volume : float = 0.0
+var target_underwater_volume : float = 0.0
+var default_surface_volume : float = 0.0
+var target_surface_volume : float = 0.0
+var bus_transition_speed : float = 5.0
+
+const UNDERWATER_BUS_IDX : int = 1
+const SURFACE_BUS_IDX : int = 2 
 
 func enter(_previous_state_path: String, _data: Dictionary = {}) -> void:
 	animation_player.animation_finished.connect(_animation_finished)
@@ -29,6 +38,13 @@ func enter(_previous_state_path: String, _data: Dictionary = {}) -> void:
 	animation_player.play("ReadyLeft")
 	event_manager.on_enter_event_state("HeadInWater")
 	
+	default_underwater_volume = AudioServer.get_bus_volume_linear(UNDERWATER_BUS_IDX)
+	default_surface_volume = AudioServer.get_bus_volume_linear(SURFACE_BUS_IDX)
+	
+	target_underwater_volume = default_underwater_volume
+	
+	target_surface_volume = 0
+	AudioServer.set_bus_volume_linear(SURFACE_BUS_IDX, 0)
 
 func exit() -> void:
 	animation_player.animation_finished.disconnect(_animation_finished)
@@ -44,6 +60,18 @@ func update(delta: float) -> void:
 		if current_velocity > 0.0:
 			# Then move
 			player.move_and_collide(delta * Vector3.FORWARD * current_velocity)
+			
+	var current_surface_volume = AudioServer.get_bus_volume_linear(SURFACE_BUS_IDX)
+	if target_surface_volume != current_surface_volume:
+		var dir = signf(target_surface_volume - current_surface_volume)
+		current_surface_volume = clamp(current_surface_volume + dir * bus_transition_speed * delta, 0, default_surface_volume)
+		AudioServer.set_bus_volume_linear(SURFACE_BUS_IDX, current_surface_volume)
+		
+	var current_underwater_volume = AudioServer.get_bus_volume_linear(UNDERWATER_BUS_IDX)
+	if target_underwater_volume != current_underwater_volume:
+		var dir = signf(target_underwater_volume - current_underwater_volume)
+		current_underwater_volume = clamp(current_underwater_volume + dir * bus_transition_speed * delta, 0, default_underwater_volume)
+		AudioServer.set_bus_volume_linear(UNDERWATER_BUS_IDX, current_underwater_volume)
 
 func _animation_finished(anim_name: String) -> void:
 	if anim_name == "ReadyLeft":
@@ -74,6 +102,8 @@ func handle_input(event: InputEvent) -> void:
 			if breathing:
 				camera_animation.play_backwards("BreatheRight")
 				breathing = false
+				do_splash_sfx()
+				enable_underwater_sounds()
 			
 	elif event.is_action_pressed("right_stroke"):
 		if right_pull_ready or (animation_player.current_animation == "ReadyRight" and animation_player.current_animation_length - animation_player.current_animation_position < 0.1):
@@ -86,10 +116,14 @@ func handle_input(event: InputEvent) -> void:
 			if breathing:
 				camera_animation.play_backwards("BreatheLeft")
 				breathing = false
+				do_splash_sfx()
+				enable_underwater_sounds()
+				
 			
 	elif event.is_action_pressed("breathe"):
 		if not breathing:
 			breathing = true
+			enable_surface_sounds()
 			if current_side == "Left":
 				camera_animation.play("BreatheRight")
 			else:
@@ -100,3 +134,12 @@ func do_pull_sfx() -> void:
 	
 func do_splash_sfx() -> void:
 	underwater_splash.play()
+	water_splash.play()
+
+func enable_underwater_sounds() -> void:
+	target_underwater_volume = default_underwater_volume
+	target_surface_volume = 0
+
+func enable_surface_sounds() -> void:
+	target_surface_volume = default_surface_volume
+	target_underwater_volume = 0

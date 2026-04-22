@@ -19,6 +19,10 @@ run/main_scene="uid://cg2pqihw6wjud"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://b7i25h4xvnu6t"
+
 [global_group]
 
 Player="player group for checking collision"
