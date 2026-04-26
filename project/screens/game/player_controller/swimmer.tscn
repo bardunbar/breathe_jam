@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1lg0qenj04wi"]
 
 [ext_resource type="Script" uid="uid://bv1n4b2nb2qhn" path="res://scripts/state_machine/state_machine.gd" id="1_0lhhj"]
+[ext_resource type="Script" uid="uid://ix78qgj5bxqy" path="res://scripts/player.gd" id="1_3f3qt"]
 [ext_resource type="Shader" uid="uid://cnodusow3hw1s" path="res://shaders/underwater_postprocess.gdshader" id="1_m15ch"]
 [ext_resource type="Script" uid="uid://bk5o1qx0l63fp" path="res://screens/game/player_controller/states/swimming.gd" id="2_m15ch"]
 [ext_resource type="Script" uid="uid://bv27kj6t37txv" path="res://scripts/camera_postprocess.gd" id="2_ooaxr"]
@@ -27,6 +28,7 @@
 render_priority = 0
 shader = ExtResource("1_m15ch")
 shader_parameter/water_time = 0.0
+shader_parameter/wave_height = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_ooaxr"]
 material = SubResource("ShaderMaterial_ry1sk")
@@ -314,10 +316,12 @@ stream_4/stream = ExtResource("13_aotgi")
 
 [node name="Character" type="CharacterBody3D" unique_id=1292171272 groups=["Player"]]
 motion_mode = 1
+script = ExtResource("1_3f3qt")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1297733054]
 transform = Transform3D(1, 0, 0, 0, 0.4857858, 0.8740779, 0, -0.8740779, 0.4857858, 0, 0, 0)
 current = true
+fov = 60.0
 
 [node name="Underwater_PostProcess" type="MeshInstance3D" parent="Camera3D" unique_id=1254536298]
 extra_cull_margin = 16384.0
@@ -403,3 +407,6 @@ stream = ExtResource("17_m6cmj")
 volume_db = -1.224
 autoplay = true
 bus = &"Surface"
+
+[connection signal="death_event" from="StateMachine/Swimming" to="." method="_on_swimming_death_event"]
+[connection signal="oxygen_update" from="StateMachine/Swimming" to="." method="_on_swimming_oxygen_update"]

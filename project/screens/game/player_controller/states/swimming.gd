@@ -7,13 +7,23 @@ extends State
 @onready var water_splash : AudioStreamPlayer3D = %WaterSplash
 @onready var underwater_pull : AudioStreamPlayer3D = %UnderwaterPull
 
+signal oxygen_update(new_value: float, old_value: float)
+signal death_event()
+
 var event_manager : EventManager = preload("res://scripts/event_management/event_manager.gd").get_manager()
 
+var started_swimming : bool = false
 var current_side : String = "Left"
 var left_pull_ready : bool = false
 var right_pull_ready : bool = false
 var breathing : bool = false
 var moving : bool = false
+
+var oxygen_level = 100.0
+var oxygen_max_level = 100.0
+var oxygen_decrease_rate = 3.0
+var oxygen_move_decrease_rate = 40.0
+var oxygen_increase_rate = 100.0
 
 var current_velocity : float = 0.0
 @export var velocity_per_stroke : float = 10.0
@@ -72,6 +82,21 @@ func update(delta: float) -> void:
 		var dir = signf(target_underwater_volume - current_underwater_volume)
 		current_underwater_volume = clamp(current_underwater_volume + dir * bus_transition_speed * delta, 0, default_underwater_volume)
 		AudioServer.set_bus_volume_linear(UNDERWATER_BUS_IDX, current_underwater_volume)
+		
+#	Oxygen
+	var old_oxygen = oxygen_level
+	if started_swimming and oxygen_level > 0.0:
+		var oxygen_change = delta
+		if breathing:
+			oxygen_change *= oxygen_increase_rate
+		elif moving:
+			oxygen_change *= -oxygen_move_decrease_rate
+		else:
+			oxygen_change *= -oxygen_decrease_rate
+		oxygen_level = clamp(oxygen_level + oxygen_change, 0.0, 100.0)
+		if oxygen_level < old_oxygen and oxygen_level <= 0.0:
+			death_event.emit()
+	oxygen_update.emit(oxygen_level, old_oxygen)
 
 func _animation_finished(anim_name: String) -> void:
 	if anim_name == "ReadyLeft":
@@ -91,11 +116,15 @@ func trigger_breath(_side: String) -> void:
 	pass
 
 func handle_input(event: InputEvent) -> void:
+	if oxygen_level <= 0.0: # Dead
+		return
+	started_swimming = true
 	if event.is_action_pressed("left_stroke"):
 		if left_pull_ready or (animation_player.current_animation == "ReadyLeft" and animation_player.current_animation_length - animation_player.current_animation_position < 0.1):
 			left_pull_ready = false
 			current_side = "Right"
 			animation_player.play("PullLeft")
+			moving = true
 			current_velocity = minf(max_velocity, current_velocity + velocity_per_stroke)
 			animation_player.queue("ReadyRight")
 			do_pull_sfx()
@@ -110,6 +139,7 @@ func handle_input(event: InputEvent) -> void:
 			right_pull_ready = false
 			current_side = "Left"
 			animation_player.play("PullRight")
+			moving = true
 			current_velocity = minf(max_velocity, current_velocity + velocity_per_stroke)
 			animation_player.queue("ReadyLeft")
 			do_pull_sfx()
